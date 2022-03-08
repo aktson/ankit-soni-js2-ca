@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Add article | JS-2 Course assignment</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-4">
+        <div class="container">
+          <a class="navbar-brand" href="/index.html">NewsPaper</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse ms-auto flex-grow-0" id="navbarNav">
+            <ul class="navbar-nav align-items-center gap-4" id="menu-container">
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="container ">
+          <form class="mx-auto  col-md-5 shadow p-4 my-4 ">
+            <h1 class=" my-4">Add article</h1>
+            <span id="message-container"></span>
+            <div class="mb-3 ">
+              <label for="title" class="form-label lead">Title</label>
+              <input type="text" class="form-control" id="title" placeholder="minimum 4 letters" >
+              <span id="title-error"></span>
+                   </div>
+            <div class="mb-3 ">
+              <label for="summary" class="form-label lead">Summary  </label>
+              <input type ="text" class="form-control" id="summary" placeholder="minimum 10 letters"></input>
+              <div id="summary-error" class="w-100"></div>
+            </div>
+            <div class="mb-3 ">
+              <label for="author" class="form-label lead">Author  </label>
+              <input type ="text" class="form-control" id="author" placeholder="minimum 4 letters"></input>
+              <div id="author-error" class="w-100"></div>
+            </div>
+
+            <button class="btn btn-info btn-lg w-100 my-4">Add</button>
+        </form>
+         
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="p-5 mx-5 border-top border-primary text-center">&copy;2022 designed & developed by AnkSon</div>
+    </footer>
+    <script src="js/pages/addArticles.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Favourites | JS-2 Course assignment</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-4">
+        <div class="container">
+          <a class="navbar-brand" href="/index.html">NewsPaper</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse ms-auto flex-grow-0" id="navbarNav">
+            <ul class="navbar-nav align-items-center gap-4" id="menu-container"></ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="container">
+        <div class="my-5 d-flex justify-content-between align-items-center">
+          <h1>Favourites</h1>
+        </div>
+        <div class="row gap-4" id="result-container"></div>
+      </section>
+    </main>
+    <footer>
+      <div class="p-5 mx-5 border-top border-primary text-center">&copy;2022 designed & developed by AnkSon</div>
+    </footer>
+    <script src="js/pages/favourites.js" type="module"></script>
+  </body>
+</html>
