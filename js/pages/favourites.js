@@ -16,10 +16,8 @@ if (!username) {
 
 const resultContainer = document.querySelector("#result-container");
 
-
-
 if (savedItems.length === 0) {
-  displayMessage("dark", "No items in favourites!!", "#result-container")
+  displayMessage("dark", "Nothing here yet!!", "#result-container")
 }
 
 function renderHtml(savedItems) {
@@ -31,46 +29,42 @@ function renderHtml(savedItems) {
                                       <p class="card-text h-100">${item.summary}</p>
                                       <p class="card-subtitle mb-2 text-muted border-top p-2">Author: ${item.author}</p>   
                                       <i class="bi bi-star-fill fs-4 favourited" id="favourites"></i>
-                                      <div data-id =${item.id} id="clear">${clearBtn}</div>
+                                      <div data-id=${item.id} id="clear">${clearBtn}</div>
                                   </div>`
   })
-}
 
-renderHtml(savedItems)
+  const clearBtns = document.querySelectorAll("#clear");
 
-const clearBtns = document.querySelectorAll("#clear");
+  if (savedItems.length > 0) {
+    clearBtns.forEach(clearBtn => {
 
-if (savedItems.length > 0) {
-  clearBtns.forEach(clearBtn => {
-    clearBtn.addEventListener("click", ClearItem);
-  })
-
-}
-
-function ClearItem(event) {
-
-  const id = event.target.parentElement.dataset.id;
-  const doClear = window.confirm("Are you sure that you want to delete?");
+      clearBtn.addEventListener("click", (event) => {
+        const id = event.target.parentElement.dataset.id;
+        const doClear = window.confirm("Are you sure that you want to delete?");
 
 
-  if (doClear) {
+        if (doClear) {
+          const filteredResults = savedItems.filter(function (item) {
+            return parseInt(item.id) !== parseInt(id);
+          })
 
-    const filteredResults = savedItems.filter(function (item) {
-      return parseInt(item.id) !== parseInt(id);
+          resultContainer.innerHTML = "";
+          saveToStorage(articlesKey, filteredResults)
+
+          const newSavedItems = getFromStorage(articlesKey)
+
+          renderHtml(newSavedItems);
+
+          if (newSavedItems.length === 0) {
+            displayMessage("dark", "No items in favourties!!", "#result-container");
+          }
+        }
+      })
+
     })
 
-    resultContainer.innerHTML = "";
-
-    saveToStorage(articlesKey, filteredResults)
-
-    const newSavedItems = getFromStorage(articlesKey)
-
-    renderHtml(newSavedItems);
-
-    // location.reload();
-
-    if (newSavedItems.length === 0) {
-      displayMessage("dark", "No items in favourites", "#result-container");
-    }
   }
+
 }
+
+renderHtml(savedItems);
